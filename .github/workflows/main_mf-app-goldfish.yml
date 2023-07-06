@@ -23,7 +23,9 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install --force
+          npm install
+          npm run build --if-present
+          npm run test --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -50,5 +52,5 @@ jobs:
         with:
           app-name: 'MF-APP-GoldFish'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A672AFC45FF4486A5EFD4E30B042587 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3BE630AF2CFD4988B7D95F3A889330E8 }}
           package: .
