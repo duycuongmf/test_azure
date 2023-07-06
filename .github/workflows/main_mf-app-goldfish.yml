@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'MF-APP-GoldFish'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D33D9CD1D9214E82A94BDBF580D0D29F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CCECDCE23B73446094E450D906AACC92 }}
           package: .
