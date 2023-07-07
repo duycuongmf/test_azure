@@ -26,14 +26,14 @@ jobs:
           npm install --force
           npm run build --if-present
           
-#       - name: Zip all files for upload between jobs
-#         run: zip --symlinks -r nest.zip ./*
+      - name: Zip all files for upload between jobs
+        run: zip --symlinks -r nest.zip ./*
           
-#       - name: Upload artifact for deployment job
-#         uses: actions/upload-artifact@v2
-#         with:
-#           name: test123
-#           path: nest.zip
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v2
+        with:
+          name: test123
+          path: nest.zip
 
 
   deploy:
@@ -44,10 +44,10 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-#       - name: Download artifact from build job
-#         uses: actions/download-artifact@v2
-#         with:
-#           name: test123
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: test123
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -56,8 +56,8 @@ jobs:
           app-name: 'MF-APP-GoldFish'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3BE630AF2CFD4988B7D95F3A889330E8 }}
-          package: .
-#           package: nest.zip
+#           package: .
+          package: nest.zip
 
-#       - name: Delete zip file
-#         run: rm nest.zip
+      - name: Delete zip file
+        run: rm nest.zip
